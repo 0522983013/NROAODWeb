@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/admin/', function () {
+Route::get('admin/', function () {
     return view('admin.index');
 });
+
+Route::get('admin/category/create', 'Admin\CategoryController@create');
+Route::post('admin/category/create', 'Admin\CategoryController@store');
+Route::get('admin/category/', 'Admin\CategoryController@index');
