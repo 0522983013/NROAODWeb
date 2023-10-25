@@ -31,29 +31,28 @@
                         <table class="table table-hover text-nowrap">
                             <thead>
                                 <tr>
-                                    <th>name</th>
-                                    <th>Slug</th>
-                                    <th>Imgage</th>
-                                    <th>Mô tả</th>
+                                    <th>Username</th>
+                                    <th>Tên</th>
+                                    <th>Chức Vụ</th>
+                                    <th>địa chỉ</th>
                                     <th>Ngày Tạo</th>
                                     <th>custom</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($data_category as $item)
-                                    <form action="/admin/category/delete" method="post">
+                                @foreach ($data_users as $item)
+                                    <form action="/admin/users/delete" method="post">
                                         <tr>
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                             <input type="text" name="id" value="{{ $item->id }}" hidden>
+                                            <td>{{ $item->username }}</td>
                                             <td>{{ $item->name }}</td>
-                                            <td>{{ $item->slug }}</td>
-                                            @if ($item->image != null)
-                                                <td><img style="width: 100px; height: 100px;" src="{{ $item->image }}"
-                                                        alt="{{ $item->slug }}"></td>
+                                            <td>@if ($item->group == 'admin')
+                                                <p style="color: rgb(0, 255, 0)">Quản Trị Viên</p>
                                             @else
-                                                <td></td>
-                                            @endif
-                                            <td>{{ $item->describe }}</td>
+                                                Thành viên
+                                            @endif</td>
+                                            <td>{{ $item->diachi }}</td>
                                             <td>{{ $item->created_at }}</td>
                                             <td>
                                                 {{-- <button class="btn btn-primary" type="submit">Sửa</button> --}}
