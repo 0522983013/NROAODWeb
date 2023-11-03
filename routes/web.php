@@ -14,20 +14,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('client.index');
 });
 Route::get('admin/', function () {
     return view('admin.index');
 });
 
-Route::get('admin/category/create', 'Admin\CategoryController@createview');
-Route::post('admin/category/create', 'Admin\CategoryController@create');
-Route::post('admin/category/delete', 'Admin\CategoryController@delete');
-Route::get('admin/category/', 'Admin\CategoryController@index');
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as'=>'admin.'], function () {
+    Route::resource('category', 'CategoryController');
 
-Route::get('admin/users/','Admin\users@index');
-Route::get('admin/users/create', 'Admin\users@createview');
-Route::post('admin/users/create', 'Admin\users@create');
-Route::post('admin/users/delete', 'Admin\users@delete');
+    Route::resource('tags', 'TagsController');
+
+    Route::resource('users', 'users');
+    
+});
+
 
 

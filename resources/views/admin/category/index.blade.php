@@ -41,14 +41,15 @@
                             </thead>
                             <tbody>
                                 @foreach ($data_category as $item)
-                                    <form action="/admin/category/delete" method="post">
+                                    <form action="{{ route('admin.category.destroy', $item->id) }}" method="post">
+                                        @method('DELETE')
                                         <tr>
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                             <input type="text" name="id" value="{{ $item->id }}" hidden>
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->slug }}</td>
-                                            @if ($item->image != null)
-                                                <td><img style="width: 100px; height: 100px;" src="{{ $item->image }}"
+                                            @if (isset($item->image))
+                                                <td><img style="width: 100px; height: 100px;" src="{{ asset('storage/'.$item->image) }}"
                                                         alt="{{ $item->slug }}"></td>
                                             @else
                                                 <td></td>
@@ -56,12 +57,13 @@
                                             <td>{{ $item->describe }}</td>
                                             <td>{{ $item->created_at }}</td>
                                             <td>
-                                                {{-- <button class="btn btn-primary" type="submit">Sửa</button> --}}
-                                                <button type="submit" class="btn btn-warning">Xóa</button>
+                                                <a class="btn btn-warning" href="{{ route('admin.category.edit', $item->id) }}">Sửa</a>
+                                                <button type="submit" class="btn btn-danger">Xóa</button>
                                             </td>
                                         </tr>
                                     </form>
                                 @endforeach
+                                <center>{{ $data_category->links() }}</center>
                             </tbody>
                         </table>
                     </div>

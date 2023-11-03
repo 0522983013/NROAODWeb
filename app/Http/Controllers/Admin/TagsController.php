@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use \Str;
+use \DB;
 
 class TagsController extends Controller
 {
@@ -12,7 +14,8 @@ class TagsController extends Controller
      */
     public function index()
     {
-        //
+        $data_tags = DB::table("tags")->orderBy("id","desc")->paginate(10);
+        return view("admin.tags.index", ['data_tags' => $data_tags]);
     }
 
     /**
@@ -20,7 +23,7 @@ class TagsController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.tags.create");
     }
 
     /**
@@ -28,7 +31,14 @@ class TagsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $tags['name'] = $request->name;
+        $tags['created_at'] = now();
+        $tags['updated_at'] = now();
+
+        DB::table("tags")->insert($tags);
+
+        return redirect()->route('admin.tags.index');
     }
 
     /**
@@ -44,7 +54,12 @@ class TagsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = DB::table('tags')->where('id', "=", $id)->first();
+        if (empty($data)) {
+            return redirect()->route('admin.tags.index');
+        } else {
+            return view('admin.tags.edit', ['tags_data' => $data]);
+        }
     }
 
     /**
@@ -52,7 +67,13 @@ class TagsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
+        $tags['name'] = $request->name;
+        $tags['updated_at'] = now();
+
+        DB::table("tags")->where('id', '=', $id)->update($tags);
+
+        return redirect()->route('admin.tags.index');
     }
 
     /**
@@ -60,6 +81,7 @@ class TagsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        DB::table("tags")->delete($id);
+        return redirect()->route("admin.tags.index");
     }
 }

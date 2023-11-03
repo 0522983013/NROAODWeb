@@ -24,14 +24,14 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="card card-primary">
-                    <form action="{{ route('admin.category.store') }}" method="POST" enctype='multipart/form-data'>
+                    <form action="{{ route('admin.category.update', $category_data->id) }}" method="POST" enctype='multipart/form-data'>
                         <div class="card-body">
                             @csrf
-
-                            
+                            @method('PUT')
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                                <input type="text" class="form-control" id="name" name="name"
+                                    value="{{ $category_data->name }}">
                             </div>
                             <div class="form-group">
                                 <label for="image">Image</label>
@@ -40,15 +40,14 @@
                                         <input type="file" class="custom-file-input" id="image" name="image">
                                         <label class="custom-file-label" for="image">Choose file</label>
                                     </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Upload</span>
-                                    </div>
+                                    <img style="width: 100px; height: 100px;" src="{{ $category_data->image }}"
+                                        alt="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="describe">describe</label>
                                 <input type="text" class="form-control" id="describe" name="describe"
-                                    placeholder="describe">
+                                    value="{{ $category_data->describe }}">
                             </div>
                             <div class="card-footer">
                                 <button class="btn btn-primary" type="submit">Gửi</button>

@@ -8,19 +8,48 @@ use App\Models\User;
 use DB;
 use Str;
 use Validator;
+use Hash;
 
 class users extends Controller
 {
     public function index(){
-        $users = DB::table("users")->get();
+        $users = DB::table("users")->orderBy("id","desc")->paginate(10);
         return view("admin.users.index", ['data_users' => $users]);
     }
 
-    public function createview(){
+    public function create(){
         return view("admin.users.create");
     }
 
-    public function create(Request $rq){
+    public function edit(string $id)
+    {
+        $data = DB::table('users')->where('id', "=", $id)->first();
+        if (empty($data)) {
+            return redirect()->route('admin.users.index');
+        } else {
+            return view('admin.users.edit', ['users_data' => $data]);
+        }
+    }
+
+    public function update(request $request, $id)
+    {
+        $data_user = [
+            'username' => $request->username,
+            'email'=> $request->email,
+            // 'group'=> $request->group,
+            'name'=> $request->name,
+            'diachi'=>$request->diachi,
+            'updated_at'=>now(),
+        ];
+        if(isset($request->password)){
+            $data_user['password'] = hash::make($request->password);    
+        }
+        DB::table("users")->where('id', '=', $id)->update($data_user);
+
+        return redirect()->route('admin.users.index');
+    }
+
+    public function store(Request $rq){
         $request = validator::make($rq->all(), [
             'username' => 'required|string',
             'password' => 'required|string',
@@ -35,7 +64,7 @@ class users extends Controller
         
         $data_user = [
             'username' => $rq->username,
-            'password'=> md5($rq->password),
+            'password'=> hash::make($rq->password),
             'email'=> $rq->email,
             'group'=> $rq->group,
             'name'=> $rq->name,
@@ -58,11 +87,11 @@ class users extends Controller
         }
 
         DB::table("users")->insert($data_user);
-        return redirect('admin/users');
+        return redirect()->route('admin.users.index');
     }
 
-    public function delete(request $request){
+    public function destroy(request $request){
         DB::table("users")->delete($request->id);
-        return redirect('admin/users');
+        return redirect()->route('admin.users.index');
     }
 }

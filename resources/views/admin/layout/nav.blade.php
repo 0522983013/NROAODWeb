@@ -143,7 +143,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
                         <li class="nav-item">
-                            <a href="/admin/category" class="nav-link">
+                            <a href="{{ route('admin.category.index') }}" class="nav-link">
                                 <i class='nav-icon bx bxs-category'></i>
                                 <p>
                                     Category
@@ -152,13 +152,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/admin/category/" class="nav-link">
+                                    <a href="{{ route('admin.category.index') }}" class="nav-link">
                                         <i class='nav-icon bx bxs-category'></i>
                                         <p>Category</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/admin/category/create" class="nav-link">
+                                    <a href="{{ route('admin.category.create') }}" class="nav-link">
                                         <i class='nav-icon bx bx-duplicate'></i>
                                         <p>Create Category</p>
                                     </a>
@@ -166,7 +166,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/users" class="nav-link">
+                            <a href="{{ route('admin.users.index') }}" class="nav-link">
                                 <i class="nav-icon far fa-user"></i>
                                 <p>
                                     Users
@@ -175,13 +175,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/admin/users/" class="nav-link">
+                                    <a href="{{ route('admin.users.index') }}" class="nav-link">
                                         <i class="nav-icon far fa-user"></i>
                                         <p>Users</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/admin/users/create" class="nav-link">
+                                    <a href="{{ route('admin.users.create') }}" class="nav-link">
                                         <i class='nav-icon bx bx-user-plus'></i>
                                         <p>Create Users</p>
                                     </a>
@@ -199,13 +199,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/admin/tags/" class="nav-link">
+                                    <a href="{{ route('admin.tags.index') }}" class="nav-link">
                                         <i class='nav-icon bx bxs-tag'></i>
                                         <p>tag</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/admin/tags/create" class="nav-link">
+                                    <a href="{{ route('admin.tags.create') }}" class="nav-link">
                                         {{-- <i class="far fa-circle nav-icon"></i> --}}
                                         <p>Create tag</p>
                                     </a>

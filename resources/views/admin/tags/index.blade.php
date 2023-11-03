@@ -6,12 +6,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Create_Category</h1>
+                        <h1 class="m-0">Create_tags</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
-                            <li class="breadcrumb-item active">Users</li>
+                            <li class="breadcrumb-item active">tags</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -31,37 +31,28 @@
                         <table class="table table-hover text-nowrap">
                             <thead>
                                 <tr>
-                                    <th>Username</th>
-                                    <th>Tên</th>
-                                    <th>Chức Vụ</th>
-                                    <th>địa chỉ</th>
+                                    <th>name</th>
                                     <th>Ngày Tạo</th>
                                     <th>custom</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($data_users as $item)
-                                    <form action="{{ route('admin.users.destroy', $item->id) }}" method="post">
+                                @foreach ($data_tags as $item)
+                                    <form action="{{ route('admin.tags.destroy', $item->id) }}" method="post">
+                                        @method('DELETE')
                                         <tr>
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                             <input type="text" name="id" value="{{ $item->id }}" hidden>
-                                            <td>{{ $item->username }}</td>
                                             <td>{{ $item->name }}</td>
-                                            <td>@if ($item->group == 'admin')
-                                                <p style="color: rgb(0, 255, 0)">Quản Trị Viên</p>
-                                            @else
-                                                Thành viên
-                                            @endif</td>
-                                            <td>{{ $item->diachi }}</td>
                                             <td>{{ $item->created_at }}</td>
                                             <td>
-                                                <a class="btn btn-warning" href="{{ route('admin.users.edit', $item->id) }}">Sửa</a>
-                                                <button type="submit" class="btn btn-warning">Xóa</button>
+                                                <a class="btn btn-warning" href="{{ route('admin.tags.edit', $item->id) }}">Sửa</a>
+                                                <button type="submit" class="btn btn-danger">Xóa</button>
                                             </td>
                                         </tr>
                                     </form>
                                 @endforeach
-                                <center>{{ $data_users->links() }}</center>
+                                <center>{{ $data_tags->links() }}</center>
 
                             </tbody>
                         </table>

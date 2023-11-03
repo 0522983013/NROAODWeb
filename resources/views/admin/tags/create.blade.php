@@ -6,12 +6,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Create_Category</h1>
+                        <h1 class="m-0">Create_tags</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
-                            <li class="breadcrumb-item">Category</li>
+                            <li class="breadcrumb-item">tags</li>
                             <li class="breadcrumb-item active">create</li>
                         </ol>
                     </div><!-- /.col -->
@@ -24,31 +24,12 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="card card-primary">
-                    <form action="{{ route('admin.category.store') }}" method="POST" enctype='multipart/form-data'>
+                    <form action="{{ route('admin.tags.store') }}" method="POST" enctype='multipart/form-data'>
                         <div class="card-body">
                             @csrf
-
-                            
                             <div class="form-group">
                                 <label for="name">Name</label>
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="image">Image</label>
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="image" name="image">
-                                        <label class="custom-file-label" for="image">Choose file</label>
-                                    </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Upload</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="describe">describe</label>
-                                <input type="text" class="form-control" id="describe" name="describe"
-                                    placeholder="describe">
                             </div>
                             <div class="card-footer">
                                 <button class="btn btn-primary" type="submit">Gửi</button>
