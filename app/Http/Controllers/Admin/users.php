@@ -94,4 +94,15 @@ class users extends Controller
         DB::table("users")->delete($request->id);
         return redirect()->route('admin.users.index');
     }
+
+    public function userLogin(request $request){
+        $login = [
+            'email'=> $request->Name,
+            'password'=> $request->Password,
+        ];
+        // dd(hash::make('123456'));
+        if(\Auth::attempt($login)){
+            return view('admin.index');
+        }
+    }
 }

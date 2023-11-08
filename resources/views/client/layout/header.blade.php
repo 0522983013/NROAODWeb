@@ -1,73 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" class="dark-mode">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NRO AOD - Máy Chủ Ngọc Rồng Thương Mại AOD</title>
+    <meta name="keywords" content="AOD world, AOD, avatar world, NRO AOD, NRO">
+    <meta name="description" content="Trang chủ chính thức của NRO AOD">
 
-    {{-- awesome --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{-- Bootstrap --}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- Favicon and Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('client/img/logo.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('client/img/logo.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('client/img/logo.png') }}">
+    <link rel="shortcut icon" href="{{ asset('client/img/logo.png') }}">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="{{ asset('client/style.css') }}">
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" media="screen"
+        href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css">
+    <link rel="stylesheet" media="screen"
+        href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.4/swiper-bundle.min.css">
+    <link rel="stylesheet" media="screen"
+        href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.0/css/lightgallery-bundle.min.css">
+
+    <link rel="stylesheet" href="{{ asset('/client/fb.css') }}">
+
+    <!-- Main Theme Styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="{{ asset('client/style.css') }}">
+
+    {{-- boxicons icon --}}
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- toastr -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
-    <header>
-        <p>THIẾT KẾ CHUẨN SEO TẠI Itplut Academy</p>
-    </header>
+<body cz-shortcut-listen="true" style="">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">
-                <img width="200" height="70" src="{{ asset('client/img/logo_net5s.png') }}" alt="net5s">
-            </a>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Trang Chủ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Giới Thiệu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Dịch Vụ Chính</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Kho Giao Diện</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Kiến Thức Chung
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Kiến Thức Website</a></li>
-                            <li><a class="dropdown-item" href="#">Kiến Thức Seo</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Liên Hệ</a>
-                    </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container">
+    {{-- <div class="page-loading"></div> --}}
