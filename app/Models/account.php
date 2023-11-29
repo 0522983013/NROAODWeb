@@ -9,15 +9,11 @@ class account extends Model
 {
     use HasFactory;
 
-    protected $table = "account";
+    protected $table = "accounts";
     protected $fillable = [
         'username',
         'password',
-        'create_time',
-        'update_time',
         'ban',
-        'point_post',
-        'last_post',
         'role',
         'is_admin',
         'last_time_login',
@@ -30,5 +26,7 @@ class account extends Model
         'is_gift_box',
         'gift_time',
         'reward',
+        'created_at',
+        'updated_at'
     ];
 }

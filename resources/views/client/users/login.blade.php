@@ -10,8 +10,6 @@
 
     <!-- Vendor Styles -->
     <link rel="stylesheet" media="screen"
-        href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css">
-    <link rel="stylesheet" media="screen"
         href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.4/swiper-bundle.min.css">
     <link rel="stylesheet" media="screen"
         href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.0/css/lightgallery-bundle.min.css">
@@ -48,13 +46,14 @@
                 <div class="card bg-dark text-white" style="border-radius: 1rem;">
                     <div class="card-body p-5 pb-0 pt-4 text-center">
                         <form onsubmit="return Checklogin()" method="POST" name="frmlogin"
-                            action="{{ route('client.users.CheckLogin') }}" class="mb-md-5 mt-md-4 pb-3">
+                            action="{{ route('client.users.checklogin') }}" class="mb-md-5 mt-md-4 pb-3">
                             @csrf
 
                             <h2 class="text-white fw-bold mb-3 text-uppercase">Login</h2>
                             <div class="form-outline form-white mb-4">
                                 <label class="text-white form-label" for="typeEmailX">Tài Khoản or Email</label>
-                                <input name="Name" type="text" id="typeEmailX" placeholder="Vui Lòng Điền Email hoặc tài khoản"
+                                <input name="Name" type="text" id="typeEmailX"
+                                    placeholder="Vui Lòng Điền Email hoặc tài khoản"
                                     class="form-control form-control-lg" />
                             </div>
 
@@ -64,38 +63,13 @@
                                     class="form-control form-control-lg" />
                             </div>
 
-                            {{-- <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot
-                                        password?</a>
-                                </p> --}}
-
                             <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
                         </form>
-                        {{-- <div>
-                                <p class="mb-0">Don't have an account? <a href="#!"
-                                        class="text-white-50 fw-bold">Sign Up</a>
-                                </p>
-                            </div> --}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <script>
-        function Checklogin() {
-            var u = document.frmlogin.typeEmailX.value;
-            var p = document.frmlogin.typePasswordX.value;
-            if (u == "") { //quy tắc 1
-                toastr.warning('Chưa nhập email hoặc tài khoản mà');
-                return false;
-            }
-            if (p == "") { //quy tắc 2
-                toastr.warning('Chưa nhập Mật khẩu kìa!!');
-                return false;
-            }
-            return true;
-        }
-    </script>
     <!-- jQuery -->
     <script src="{{ asset('AdminLTE/plugins/jquery/jquery.min.js') }}"></script>
     <!-- /.toastr -->
@@ -103,6 +77,16 @@
         integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+        function Checklogin() {
+            var u = document.frmlogin.typeEmailX.value;
+            var p = document.frmlogin.typePasswordX.value;
+            if (u == "" || p == "") {
+                toastr.warning('Dữ Liệu Không Được Bỏ Trống');
+                return false;
+            }
+            return true;
+        }
+
         toastr.options = {
             "closeButton": false,
             "debug": false,
@@ -121,6 +105,7 @@
             "hideMethod": "fadeOut"
         }
     </script>
+
     @if (session()->has('success'))
         <script>
             toastr.success('{{ session('success') }}');

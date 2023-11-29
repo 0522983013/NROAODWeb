@@ -1,3 +1,4 @@
+
 RewriteEngine On
 
 # Chuyển Hướng HTTPS
@@ -11,5 +12,5 @@ RewriteCond %{REQUEST_URI} !^/public/#
 
 RewriteCond %{REQUEST_URI} !(.*)/public/$
 
-# /battap/Project_1/public/ Thay Đổi Bằng URL Forder
-RewriteRule ^(.*)$ /battap/Project_1/public/$1 [L,R=301] 
+# /battap/Project/public/ Thay Đổi Bằng URL Forder
+RewriteRule ^(.*)$ /battap/Project/public/$1 [L,R=301] 

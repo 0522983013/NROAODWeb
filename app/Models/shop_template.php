@@ -19,11 +19,13 @@ class shop_template extends Model
         'type_shop',
     ];
 
-    public function npc_template(){
-        return $this->hasMany(npc_template::class, 'npc_id');
-    }
+    // public function npc_template(){
+    //     return $this->hasMany(npc_template::class);
+    // }
 
     public function tab_shop(){
         return $this->belongsTo(tab_shop::class, 'id' ,'shop_id');
     }
+
+    
 }

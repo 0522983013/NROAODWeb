@@ -18,9 +18,10 @@
                             Chơi</a></li>
                     <li class="nav-item "><a href="{{ route('client.tintuc') }}" class="nav-link">Tin
                             Games</a></li>
-                    <li class="nav-item"> <a href="/" class="nav-link">Diễn Đàn</a></li>
-                    {{-- <li class="nav-item"> <a target="_blank" href="https://www.facebook.com/TeaMobi"
-                            class="nav-link">Facebook</a></li> --}}
+                    <li class="nav-item"> <a href="{{ route('client.Posts.index') }}" class="nav-link">Diễn Đàn</a></li>
+
+                    <li class="nav-item"> <a target="_blank" href="https://www.facebook.com/tsangvps"
+                            class="nav-link">Facebook</a></li>
                 </ul>
             </div>
         </div>

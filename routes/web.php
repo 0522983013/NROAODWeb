@@ -2,42 +2,24 @@
 
 use Illuminate\Support\Facades\Route;
 
+// giao diện người dùng
 Route::group(['namespace' => 'Client', 'as' => 'client.'], function () {
-    Route::get('/test/{id}', 'viewController@test');
+    Route::get('dang-nhap',  'UsersController@login')->name('users.login');
+    Route::post('dang-nhap', 'UsersController@CheckLogin')->name('users.checklogin');
+    Route::get('dang-ky',  'UsersController@register')->name('users.register');
+    Route::post('dang-ky', 'UsersController@CheckRegister')->name('users.checkregister');
+    Route::get('dang-xuat', 'UsersController@logout')->name('users.logout');
 
-    Route::get('/', 'viewController@index')->name('index');
-    Route::get('/tintuc', 'viewController@tintuc')->name('tintuc');
-    Route::get('/baiviet', 'viewController@baiviet')->name('baiviet');
+    Route::get('/test/{id}', 'ClientController@test');
 
-    Route::resource('users', 'usersController');
-    Route::post('dang-nhap', 'usersController@login')->name('users.CheckLogin');
-    Route::get('dang-xuat', 'usersController@logout')->name('users.logout');
-    Route::get('dang-nhap',  function(){ 
-        if(\Auth::check()){
-            return redirect()->route('client.index');
-        }
-        return view('client.users.login'); 
-    } )->name('users.login');
+    Route::get('/', 'ClientController@index')->name('index'); //trang chủ
+    Route::get('/tin-tuc', 'ClientController@tintuc')->name('tintuc'); //Tin Tức
+    
+    Route::resource('Posts', 'PostController'); //Bài Viết 
+
 });
 
 // Route ADMIN
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], function () {
 
-    route::post('/login', 'users@userLogin')->name('Checklogin');
-
-    route::get('/login', function(){ return view('admin.login'); })->name('login');
-
-    Route::group(['middleware' => ['auth']], function () {
-
-        Route::get('/', function () { return view('admin.index'); });
-
-        Route::resource('category', 'CategoryController');
-
-        Route::resource('tags', 'TagsController');
-
-        Route::resource('users', 'users');
-    });
 });
-
-
-
