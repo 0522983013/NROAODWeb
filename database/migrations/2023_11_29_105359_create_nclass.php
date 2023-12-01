@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('npc_template', function (Blueprint $table) {
+        Schema::create('nclass', function (Blueprint $table) {
             $table->integer('id');
             $table->text('NAME');
-            $table->integer('head');
-            $table->integer('body');
-            $table->integer('leg');
-            $table->integer('avatar')->default(0);
         });
     }
 
@@ -26,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('npc_template');
+        Schema::dropIfExists('nclass');
     }
 };

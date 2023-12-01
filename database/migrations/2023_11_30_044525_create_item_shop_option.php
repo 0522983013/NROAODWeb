@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('npc_template', function (Blueprint $table) {
-            $table->integer('id');
-            $table->text('NAME');
-            $table->integer('head');
-            $table->integer('body');
-            $table->integer('leg');
-            $table->integer('avatar')->default(0);
+        Schema::create('item_shop_option', function (Blueprint $table) {
+            $table->integer('item_shop_id');
+            $table->integer('option_id');
+            $table->integer('param');
         });
     }
 
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('npc_template');
+        Schema::dropIfExists('item_shop_option');
     }
 };
