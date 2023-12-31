@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Đăng Ky Hệ Thống by KilLove</title>
 
 
     <!-- Vendor Styles -->
@@ -75,13 +75,11 @@
                                 <input name="re_password" minlength="6" maxlength="20" type="password" id="re_password"
                                     placeholder="Nhập Lại Mật Khẩu" class="form-control form-control-lg" />
                             </div>
-                            <div>
-                            <button class="btn btn-outline-light btn-lg px-5 btn-success"
-                                type="submit">Register</button>
-                            <br/>
-                            Hoặc
-                            <br/>
-                            <button class="btn btn-outline-light btn-lg px-5 btn-success" type="submit">Login</button>
+                            <div class="text-center">
+                                <button class="btn btn-outline-light btn-lg px-5 btn-success"
+                                    type="submit">Register</button>
+                                <span class="d-block text-center my-4 text-muted"> or <a
+                                        href="{{ route('client.users.login') }}">sign in</a></span>
                             </div>
                         </form>
                     </div>
@@ -90,7 +88,7 @@
         </div>
     </div>
     <!-- jQuery -->
-    <script src="{{ asset('AdminLTE/plugins/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('admin/plugins/jquery/jquery.min.js') }}"></script>
     <!-- /.toastr -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
         integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="

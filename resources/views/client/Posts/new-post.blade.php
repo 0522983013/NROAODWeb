@@ -1,4 +1,24 @@
 @extends('client.app')
+@section('style')
+    <!-- summernote -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
+@endsection
+
+@section('script')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+
+    <!-- Summernote -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
+
+    <script>
+        $(function() {
+            //Add text editor
+            $('#compose-textarea').summernote()
+        })
+    </script>
+@endsection
+
 @section('content')
     <!-- Breadcrumb -->
     <nav class="container py-4 mb-lg-2" aria-label="breadcrumb">
@@ -17,12 +37,14 @@
                 @csrf
                 @method('post')
                 <div class="form-group">
-                    <label for="title">Tiêu Đề:</label>
-                    <input type="text" minlength="10" class="form-control" name="title" placeholder="Nhập Tiêu Đề Bài Viết">
+                    <label for="title">Tiêu Đề: </label>
+                    <input type="text" minlength="10" class="form-control" name="title"
+                        placeholder="Nhập Tiêu Đề Bài Viết">
                 </div>
                 <div class="form-group">
-                    <label for="body">Nội Dung</label>
-                    <textarea class="form-control" name="body" rows="3"></textarea>
+                    <label>Nội Dung: </label>
+                    <textarea  name="body" id="compose-textarea" class="form-control">
+                    </textarea>
                 </div>
                 <div class="mt-2 d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn btn-primary" type="submit">Gửi</button>

@@ -13,17 +13,17 @@ use \Session;
 class PostController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Hiển Thị Bài Viết
      */
     public function index()
     {
         $post_admin = post::whereType('1')->orderBy("id", "desc")->limit(5)->get();
-        $post_member = post::whereType('0')->orderBy("id", "desc")->paginate(10);
+        $post_member = post::whereType('0')->whereStatus('1')->orderBy("id", "desc")->paginate(10);
         return view('client.Posts.post', ['posts_admin' => $post_admin, 'posts_member' => $post_member]);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Tạo Bài Viết Mới
      */
     public function create()
     {
@@ -34,16 +34,16 @@ class PostController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Tạo Bài Viết Mới
      */
     public function store(Request $request)
     {
         if (!isset($request->title) || !isset($request->body)) {
             Session::flash('error', 'Vui lòng nhập đầy đủ dữ liệu!');
-            return redirect()->route('client.Posts.new-post');
+            return redirect()->route('client.Posts.create');
         } else if (Str::length($request->title) < 10) {
             Session::flash('error', 'Độ Dài không hợp lệ. vui lòng nhập lại!');
-            return redirect()->route('client.Posts.new-post');
+            return redirect()->route('client.Posts.create');
         }
         $data = [
             "account_id" => \Auth::user()->id,
@@ -57,18 +57,18 @@ class PostController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Xem Bài Viết
      */
     public function show(string $id)
     {
         $post = post::where('id', '=', $id)->first();
+        if(!$post){
+            return view('404');
+        }
         // dd($post->toArray());
         return view('client.Posts.baiviet', ['posts' => $post]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         //

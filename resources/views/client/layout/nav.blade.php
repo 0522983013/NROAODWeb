@@ -32,13 +32,17 @@
         </div>
         <div class="dropdown ps-2 pe-2 d-none d-lg-block">
             <div id="MenuUsers">
-                <img src="{{ asset('client/img/users.jpg') }}" class="rounded-circle border" width="50" alt="Image">
+                <img src="{{ asset('client/img/users.jpg') }}" class="rounded-circle border" width="50"
+                    alt="Image">
             </div>
             <div class="dropdown-menu dropdown-transfrom" aria-labelledby="MenuUsers">
                 @if (!\Auth::check())
                     <a href="{{ route('client.users.login') }}" class="dropdown-item"> Đăng Nhập</a>
-                    <a href="#" class="dropdown-item"> Đăng Ký</a>
+                    <a href="{{ route('client.users.register') }}" class="dropdown-item"> Đăng Ký</a>
                 @else
+                    @if (\Auth::user()->is_admin == 1)
+                    <a href="{{ route('admin.index') }}" class="dropdown-item"> Quản Lý Website</a>
+                    @endif
                     <a href="{{ route('client.users.logout') }}" class="dropdown-item"> Đăng Xuất</a>
                 @endif
             </div>

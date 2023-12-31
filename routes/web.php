@@ -20,6 +20,13 @@ Route::group(['namespace' => 'Client', 'as' => 'client.'], function () {
 });
 
 // Route ADMIN
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], function () {
+Route::group(['namespace' => 'Admin', 'prefix' => '1', 'as' => 'admin.'], function () {
+    Route::get('/', 'Server@index')->name('index'); //trang chủ
+
+    // //Phần Client (Web)
+    Route::resource('/client/post-page', 'client\posts_page'); //page
+
+    Route::resource('/client/users', 'client\UsersController'); //users
+
 
 });

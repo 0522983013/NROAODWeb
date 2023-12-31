@@ -140,6 +140,7 @@
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js">
 </script>
+@yield('script')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"></script>
 <script src="{{ asset('client/style.js') }}"></script>
 

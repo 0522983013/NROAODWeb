@@ -27,7 +27,7 @@
                     <hr>
                 </div>
                 <div class="card-body text-dark">
-                    {{ $posts->body }}
+                    {!! html_entity_decode($posts->body) !!}
                 </div>
             </div>
         </article>

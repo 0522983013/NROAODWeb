@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('options')->default('[]');
             $table->integer('require')->default(-1);
             $table->integer('require_level')->default(0);
-            $table->Smaillinteger('aura_id')->default(-1);
+            $table->integer('aura_id')->default(-1);
         });
     }
 
