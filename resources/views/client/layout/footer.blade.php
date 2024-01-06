@@ -26,19 +26,10 @@
                                         class="nav-link d-inline-block px-0 pt-1 pb-2">Trang Chủ</a></li>
                                 <li class="nav-item"><a href="{{ route('client.tintuc') }}"
                                         class="nav-link d-inline-block px-0 pt-1 pb-2">Tin Tức</a></li>
-                                <li class="nav-item"><a href="/tro-choi-0.html"
+                                <li class="nav-item"><a href="{{ route('client.download')}}"
                                         class="nav-link d-inline-block px-0 pt-1 pb-2">Trò Chơi</a></li>
-                                <li class="nav-item"><a href="http://my.teamobi.com"
-                                        class="nav-link d-inline-block px-0 pt-1 pb-2">Diễn Đàn</a></li>
-                                <li class="nav-item"><a href="#"
+                                <li class="nav-item"><a href="https://facebook.com/tsangvps"
                                         class="nav-link d-inline-block px-0 pt-1 pb-2">Liên Hệ</a></li>
-                            </ul>
-                            <ul class="nav flex-column mb-2 mb-lg-0">
-                                <li class="nav-item"><a href="/dieu-khoan.html"
-                                        class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a>
-                                </li>
-                                <li class="nav-item"><a href="/dieu-khoan.html"
-                                        class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
                             </ul>
                         </div>
                     </div>
@@ -49,10 +40,10 @@
                         </h6>
                         <div id="social-links" class="collapse d-lg-block" data-bs-parent="#footer-links">
                             <ul class="nav flex-column mb-2 mb-lg-0">
-                                <li class="nav-item"><a href="https://www.facebook.com/TeaMobi"
+                                <li class="nav-item"><a href="https://www.facebook.com/tsangvps"
                                         class="nav-link d-inline-block px-0 pt-1 pb-2">Facebook</a></li>
-                                <li class="nav-item"><a href="https://www.youtube.com/user/teamobi"
-                                        class="nav-link d-inline-block px-0 pt-1 pb-2">Youtube</a></li>
+                                {{-- <li class="nav-item"><a href="https://www.youtube.com/user/teamobi"
+                                        class="nav-link d-inline-block px-0 pt-1 pb-2">Youtube</a></li> --}}
                             </ul>
                         </div>
                     </div>

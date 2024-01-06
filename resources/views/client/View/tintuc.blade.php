@@ -19,7 +19,7 @@
                     <i class='mt-3 bx bxs-left-arrow'></i>
                 </div>
 
-                <div class="ms-2 mt-3 mb-5 me-3 border bg-white card text-dark">
+                <div style="width: 100%;" class="ms-2 mt-3 mb-5 me-3 border bg-white card text-dark">
                     <div class="card-head">
                         <p class="ms-4 mt-4 h4">
                             <a href="#" class="text-primary">{{ $item->title }}</a>

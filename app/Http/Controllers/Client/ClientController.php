@@ -18,6 +18,10 @@ class ClientController extends Controller
         $post = post::whereType('1')->orderBy("id", "desc")->paginate(2);
         return view('client.View.tintuc', ['post' => $post]);
     }
+    public function download()
+    {
+        return view('client.View.download');
+    }
 
     public function test(Request $request, $id)
     {

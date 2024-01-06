@@ -14,7 +14,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item "><a href="{{ route('client.index') }}" class="nav-link">Trang
                             Chủ</a></li>
-                    <li class="nav-item"><a href="{{ route('client.index') }}" class="nav-link">Trò
+                    <li class="nav-item"><a href="{{ route('client.download') }}" class="nav-link">Trò
                             Chơi</a></li>
                     <li class="nav-item "><a href="{{ route('client.tintuc') }}" class="nav-link">Tin
                             Games</a></li>

@@ -14,7 +14,7 @@ Route::group(['namespace' => 'Client', 'as' => 'client.'], function () {
 
     Route::get('/', 'ClientController@index')->name('index'); //trang chủ
     Route::get('/tin-tuc', 'ClientController@tintuc')->name('tintuc'); //Tin Tức
-    
+    Route::get('/download', 'ClientController@download')->name('download');
     Route::resource('Posts', 'PostController'); //Bài Viết 
 
 });
@@ -25,6 +25,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => '1', 'as' => 'admin.'], functi
 
     // //Phần Client (Web)
     Route::resource('/client/post-page', 'client\posts_page'); //page
+
+    Route::resource('/client/post', 'client\PostsController'); //page
 
     Route::resource('/client/users', 'client\UsersController'); //users
 

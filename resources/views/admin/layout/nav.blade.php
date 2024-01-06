@@ -84,19 +84,19 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.post-page.index') }}" class="nav-link {{ Route::is('admin.post-page.index') ? 'active' : '' }}">
+                            <a href="{{ route('admin.post-page.index') }}" class="nav-link {{ Route::is('admin.post-page.*') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Bài Viết</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.users.index') }}" class="nav-link {{ Route::is('admin.users.index') ? 'active' : '' }}">
+                            <a href="{{ route('admin.users.index') }}" class="nav-link {{ Route::is('admin.users.*') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Người Dùng</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../index3.html" class="nav-link">
+                            <a href="{{ route('admin.post.index') }}" class="nav-link {{ Route::is('admin.post.*') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Diễn Dàn</p>
                             </a>

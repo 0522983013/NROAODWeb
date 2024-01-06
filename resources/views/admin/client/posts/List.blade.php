@@ -39,11 +39,8 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Projects <a class="btn btn-primary btn-sm"
-                        href="{{ route('admin.post-page.create') }}">
-                        <i class="fas fa-edit">
-                        </i>
-                    </a></h3>
+                <h3 class="card-title">Projects
+                </h3>
 
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -58,11 +55,14 @@
                             <th style="width: 1%">
                                 #
                             </th>
-                            <th style="width: 45%">
+                            <th style="width: 25%">
                                 Name
                             </th>
                             <th>
                                 tác giả
+                            </th>
+                            <th>
+                                Xem Trước
                             </th>
                             <th style="width: 15%" class="text-center">
                                 Status
@@ -84,35 +84,56 @@
                                 <td>
                                     {{ $type->user()->first()->username }}
                                 </td>
+                                <td>
+                                    <button class="btn btn-sm">
+                                        <a href="{{ route('client.Posts.show', $type->id) }}">Xem Ngay</a>
+                                    </button>
+                                </td>
                                 <td class="project-state">
-                                    <span class="badge badge-success">Success</span>
+                                    @if ($type->status == 1)
+                                        <span class="badge badge-success">Đã Duyệt</span>
+                                    @elseif($type->status == 2)
+                                        <span class="badge badge-error">Đã Hủy</span>
+                                    @else
+                                        <span class="badge badge-warning">Chờ Duyệt</span>
+                                    @endif
                                 </td>
                                 <td class="project-actions text-right row">
-                                    <div class="mr-2"><a class="btn btn-info btn-sm"
-                                            href="{{ route('admin.post-page.show', $type->id) }}">
-                                            <i class="fas fa-pencil-alt">
+                                    {{-- <div> --}}
+                                    <form action="{{ route('admin.post.update', $type->id) }}" method="post">
+                                        @csrf
+                                        @method('PUT')
+                                        <input type="text" name="tt" value="1" hidden>
+                                        <button onclick="return CheckConfirm('Bạn Có muốn Duyệt bài viết này không!')"
+                                            class="btn btn-success btn-sm">
+                                            <i class="fas fa-check">
                                             </i>
-                                            Edit
-                                        </a></div>
-                                    <div>
-                                        <form action="{{ route('admin.post-page.destroy', $type->id) }}" method="post">
-                                            @csrf
-                                            @method('delete')
-                                            <button onclick="return CheckConfirm('Bạn Có muốn xóa bài viết này không!')"
-                                                class="btn btn-danger btn-sm">
-                                                <i class="fas fa-trash">
-                                                </i>
-                                                Delete
-                                            </button>
-                                        </form>
-                                    </div>
-
-
+                                            Duyệt
+                                        </button>
+                                    </form>
+                                    {{-- </div>
+                                    <div> --}}
+                                    <form class="ml-2" action="{{ route('admin.post.update', $type->id) }}"
+                                        method="post">
+                                        @csrf
+                                        @method('PUT')
+                                        <input type="text" name="tt" value="2" hidden>
+                                        <button onclick="return CheckConfirm('Bạn Có muốn Hủy bài viết này không!')"
+                                            class="btn btn-danger btn-sm">
+                                            <i class="fas fa-window-close">
+                                            </i>
+                                            Hủy
+                                        </button>
+                                    </form>
+                                    {{-- </div> --}}
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+                <div style="margin-top: 10px;">
+                    {{ $post->links() }}
+                </div>
             </div>
             <!-- /.card-body -->
         </div>

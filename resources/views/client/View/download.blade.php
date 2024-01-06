@@ -1,4 +1,34 @@
 @extends('client.app')
+@section('style')
+    <style>
+        .download {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            grid-gap: 20px;
+        }
+
+        @media (max-width: 800px) {
+            .download {
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+            }
+        }
+
+        .btnDownload {
+            background-color: #FD9D00;
+            border: 5px groove;
+            border-radius: 20px;
+            width: 130px;
+            height: 65px;
+        }
+
+        .btnDownload:hover {
+            background-color: #f31722;
+        }
+    </style>
+@endsection
 @section('content')
     <!-- Breadcrumb -->
     <nav class="container py-4 mb-lg-2" aria-label="breadcrumb">
@@ -6,19 +36,22 @@
             <li class="breadcrumb-item active">
                 <a href="/"><i class="bx bx-home-alt fs-lg me-1"></i>Trang Chủ</a>
             </li>
-
-            {{-- <li class="breadcrumb-item active" aria-current="page">Danh Sách Trò Chơi</li> --}}
         </ol>
     </nav>
 
-    <section class="jarallax container pb-4 pb-lg-4 position-relative" data-jarallax="" data-speed="0.4">
-        <div class="jarallax-img"
-            style="background-image: url('https://lh3.googleusercontent.com/RDGzAurZhcIv3zx-8fT9mp4IGb7uMrVcWmNnC4Ahi1oSl2eVFvJbG5lCs26AQm7A1Ms=s1024-rw');">
-        </div>
-        <div class="d-none d-xxl-block" style="height: 400px;"></div>
-        <div class="d-none d-lg-block d-xxl-none" style="height: 460px;"></div>
-        <div class="d-none d-md-block d-lg-none" style="height: 350px;"></div>
-        <div class="d-md-none" style="height: 300px;"></div>
+    <section class="download">
+        <button class="item btnDownload">
+            APK
+        </button>
+        <button class="item btnDownload">
+            APK
+        </button>
+        <button class="item btnDownload">
+            APK
+        </button>
+        <button class="item btnDownload">
+            APK
+        </button>
     </section>
 
     <!-- Portfolio list -->
@@ -27,22 +60,40 @@
             <div class="row">
                 <div class="col-lg-7 mb-4 mb-lg-0">
                     <div class="pe-lg-4 me-lg-3 pe-xl-0 me-xl-0">
-                        <h2 class="h1 mb-4">Giới Thiệu</h2>
-                        <p class="fs-lg mb-0"></p>
-                        <p>Người chơi sẽ hóa thân thành một trong những anh hùng của 3 hành tinh: Trái Đất, Xayda, Namếc.
-                            Cùng luyện tập, tăng cường sức mạnh và kỹ năng. Đoàn kết cùng chiến đấu chống lại các thế lực
-                            hung ác. Cùng nhau tranh tài.&nbsp;</p>
-                        <p>Đặc điểm nổi bật:</p>
-                        <p>-&nbsp;Thể loại hành động, nhập vai. Trực tiếp điều khiển nhân vật hành động. Dễ chơi, dễ điều
-                            khiển nhân vật. Đồ họa sắc nét. Có phiên bản đồ họa cao cho điện thoại mạnh và phiên bản pixel
-                            cho máy cấu hình thấp.&nbsp;</p>
-                        <p>- Cốt truyện bám sát nguyên tác. Người chơi sẽ gặp tất cả nhân vật từ Bunma, Quy lão kame,
-                            Jacky-chun, Tàu Pảy Pảy... cho đến Fide, Pic, Poc, Xên, Broly, đội Bojack.&nbsp;</p>
-                        <p>- Đặc điểm nổi bật nhất: Tham gia đánh doanh trại độc nhãn. Tham gia đại hội võ thuật. Tham gia
-                            săn lùng ngọc rồng để mang lại điều ước cho bản thân.&nbsp;</p>
-                        <p>-&nbsp;Tương thích tất cả các dòng máy trên thị trường hiện nay: Máy tính PC, Điện thoại di động
-                            Nokia Java, Android, iPhone, Windows Phone, và máy tính bảng Android, iPad.</p>
-                        <p></p>
+                        <h2 class="h1 mb-4">Hướng Dẫn Tân Thủ</h2>
+                        <p class="fs-lg mb-0">1. Đăng ký tài khoản</p>
+                        <p>Ngọc Rồng Online sử dụng Tài Khoản riêng, không chung với bất kỳ Trò Chơi nào khác.
+                            Bạn có thể đăng ký tài khoản miễn phí ngay trong game, hoặc trên trang Diễn Đàn.
+                            Khi đăng ký, bạn nên sử dụng đúng số điện thoại hoặc email thật của mình. Nếu sử dụng thông tin
+                            sai, người có số điện thoại hoặc email thật sẽ có thể lấy mật khẩu của bạn.
+                            Số điện thoại và email của bạn sẽ không hiện ra cho người khác thấy. Admin không bao giờ hỏi mật
+                        </p>
+                        <p>2. Hướng dẫn điều khiển</p>
+                        <p>
+                            Đối với máy bàn phím: Dùng phím mũi tên, phím số, để điều khiển nhân vật. Phím chọn giữa để
+                            tương tác.
+                            Đối với máy cảm ứng: Dùng tay chạm vào màn hình cảm ứng để di chuyển. Chạm nhanh 2 lần vào 1 đối
+                            tượng để tương tác.
+                            Đối với PC: Dùng chuột, click chuột phải để di chuyển, click chuột trái để chọn, click đôi vào
+                            đối tượng để tương tác
+
+                        <p>3. Một số thông tin căn bản</p>
+                        <p>- Đậu thần dùng để tăng KI và HP ngay lập tức.</p>
+                        <p>- Bạn chỉ mang theo người được 10 hạt đậu. Nếu muốn mang nhiều hơn, hãy xin từ bạn bè trong
+                            Bang.</p>
+                        <p>- Tất cả các sách kỹ năng đều có thể học miễn phí tại Quy Lão Kame, khi bạn có đủ điểm tiềm
+                            năng.</p>
+                        <p>- Bạn không thể bay, dùng kỹ năng, nếu hết KI.</p>
+                        <p>- Tấn công quái vật cùng bạn bè trong Bang sẽ mang lại nhiều điểm tiềm năng hơn đánh một mình.
+                        </p>
+                        <p>- Tập luyện với bạn bè tại khu vực thích hợp sẽ mang lại nhiều điểm tiềm năng hơn đánh quái vật.
+                        </p>
+                        <p>- Khi được nâng cấp, đậu thần sẽ phục hồi nhiều HP và KI hơn.</p>
+                        <p>- Vào trò chơi đều đặn mỗi ngày để nhận được Ngọc miễn phí.</p>
+                        <p>- Đùi gà sẽ phục hồi 100% HP, KI. Cà chua phục hồi 100% KI. Cà rốt phục hồi 100% HP.</p>
+                        <p>- Cây đậu thần kết một hạt sau một thời gian, cho dù bạn đang offline.</p>
+                        <p>- Sau 3 ngày không tham gia trò chơi, bạn sẽ bị giảm sức mạnh do lười luyện tập.</p>
+                        <p>- Bạn sẽ giảm thể lực khi đánh quái, nhưng sẽ tăng lại thể lực khi không đánh nữa.</p>
                     </div>
                 </div>
                 <div class="col-lg-5 col-xl-4 offset-xl-1 border-start-lg">
@@ -111,8 +162,8 @@
       }
     }
   }">
-                    <div class="swiper-wrapper" data-video="true" id="swiper-wrapper-76c6fa88d25df385"
-                        aria-live="polite" style="transform: translate3d(-707px, 0px, 0px); transition-duration: 0ms;">
+                    <div class="swiper-wrapper" data-video="true" id="swiper-wrapper-76c6fa88d25df385" aria-live="polite"
+                        style="transform: translate3d(-707px, 0px, 0px); transition-duration: 0ms;">
                         <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="4" role="group"
                             aria-label="5 / 6" style="width: 329.5px; margin-right: 24px;">
                             <a href="{{ asset('client/img/1458721603_screen640x640-4.jpeg') }}"
@@ -145,8 +196,7 @@
                         <div class="swiper-slide" data-swiper-slide-index="2" role="group" aria-label="3 / 6"
                             style="width: 329.5px; margin-right: 24px;">
                             <a href="{{ asset('client/img/1458721603_screen640x640-1.jpeg') }}"
-                                class="gallery-item rounded-3"
-                                data-sub-html="<h6 class= fs-sm text-light >Chú Bé Rồng</h6>"
+                                class="gallery-item rounded-3" data-sub-html="<h6 class= fs-sm text-light >Chú Bé Rồng</h6>"
                                 data-lg-id="d2d1ee7b-27be-47aa-ae4b-489e87c00587">
                                 <img src="{{ asset('client/img/1458721603_screen640x640-1.jpeg') }}" alt="Chú Bé Rồng">
                                 <!-- <div class="gallery-item-caption fs-sm fw-medium">Gallery image caption</div> -->

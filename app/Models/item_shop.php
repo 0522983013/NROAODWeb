@@ -21,10 +21,6 @@ class item_shop extends Model
         'cost',
         'icon_spec',
     ];
-
-    // public function item_shop(){
-    //     return $this->hasMany(shop_template::class, 'tab_id');
-    // }
     
     public function item(){
         return $this->belongsTo(item_template::class, 'temp_id' ,'id');

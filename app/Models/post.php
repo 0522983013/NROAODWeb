@@ -27,6 +27,6 @@ class post extends Model
     }
 
     function user(){
-        return $this->hasMany(account::class, 'id', 'account_id');
+        return $this->belongsTo(account::class, 'account_id', 'id');
     }
 }

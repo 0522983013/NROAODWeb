@@ -9,13 +9,15 @@ class account extends Model
 {
     use HasFactory;
 
-    protected $table = "accounts";
+    protected $table = "account";
     protected $fillable = [
         'username',
         'password',
+        'email',
         'ban',
         'role',
         'is_admin',
+        'isonline',
         'last_time_login',
         'last_time_logout',
         'ip_address',
@@ -26,7 +28,11 @@ class account extends Model
         'is_gift_box',
         'gift_time',
         'reward',
-        'created_at',
+        'create_time',
         'updated_at'
     ];
+
+    public function player(){
+        return $this->belongsTo(player::class, 'id', 'account_id');
+    }
 }

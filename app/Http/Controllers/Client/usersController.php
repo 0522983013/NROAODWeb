@@ -61,8 +61,8 @@ class UsersController extends Controller
             'username' => $account->accounts,
             'password' => hash::make($account->password),
             'ip_address' => $this->getIp(),
-            'created_at' => now(),
-            'updated_at' => now(),
+            'gmail' => $account->email,
+            'isonline' => '0',
         ];
 
         $CheckUsers = account::where('username', $data_user['username'])->get()->count();
@@ -71,7 +71,7 @@ class UsersController extends Controller
             Session::flash('error', 'Người Dùng Này Đã Tồn Tại. Vui Lòng Thử Lại Sau!');
             return redirect()->route('client.users.register');
         }
-        DB::table("accounts")->insert($data_user);
+        DB::table("account")->insert($data_user);
         return redirect()->route('client.users.login');
     }
 

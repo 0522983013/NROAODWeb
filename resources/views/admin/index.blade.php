@@ -27,7 +27,7 @@
   
                 <div class="info-box-content">
                   <span class="info-box-text">Tổng Người Chơi</span>
-                  <span class="info-box-number">{{ \DB::table('accounts')->count() }}</span>
+                  <span class="info-box-number">{{ \DB::table('account')->count() }}</span>
                 </div>
                 <!-- /.info-box-content -->
               </div>
@@ -40,7 +40,7 @@
   
                 <div class="info-box-content">
                   <span class="info-box-text">Tổng Players</span>
-                  <span class="info-box-number">{{ \DB::table('players')->count() }}</span>
+                  <span class="info-box-number">{{ \DB::table('player')->count() }}</span>
                 </div>
                 <!-- /.info-box-content -->
               </div>
